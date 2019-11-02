@@ -1,10 +1,10 @@
 # zsh-autosuggestions
 
-_[Fish](http://fishshell.com/)-like fast/unobtrusive autosuggestions for Zsh._
+_[Fish](http://fishshell.com/)-like fast/unobtrusive autosuggestions for zsh._
 
 It suggests commands as you type based on history and completions.
 
-Requirements: Zsh v4.3.11 or later
+Requirements: zsh v4.3.11 or later
 
 [![CircleCI](https://img.shields.io/circleci/build/github/zsh-users/zsh-autosuggestions.svg)](https://circleci.com/gh/zsh-users/zsh-autosuggestions)
 [![Chat on Gitter](https://img.shields.io/gitter/room/zsh-users/zsh-autosuggestions.svg)](https://gitter.im/zsh-users/zsh-autosuggestions)
@@ -43,7 +43,7 @@ Background color can also be set, and the suggestion can be styled bold, underli
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#ff00ff,bg=cyan,bold,underline"
 ```
 
-For more info, read the Character Highlighting section of the Zsh manual: `man zshzle` or [online](http://zsh.sourceforge.net/Doc/Release/Zsh-Line-Editor.html#Character-Highlighting).
+For more info, read the Character Highlighting section of the zsh manual: `man zshzle` or [online](http://zsh.sourceforge.net/Doc/Release/Zsh-Line-Editor.html#Character-Highlighting).
 
 **Note:** Some iTerm2 users have reported [not being able to see the suggestions](https://github.com/zsh-users/zsh-autosuggestions/issues/416#issuecomment-486516333). If this affects you, the problem is likely caused by incorrect color settings. In order to correct this, go into iTerm2's setting, navigate to profile > colors and make sure that the colors for Basic Colors > Background and ANSI Colors > Bright Black are **different**.
 
@@ -53,7 +53,7 @@ For more info, read the Character Highlighting section of the Zsh manual: `man z
 `ZSH_AUTOSUGGEST_STRATEGY` is an array that specifies how suggestions should be generated. The strategies in the array are tried successively until a suggestion is found. There are currently three built-in strategies to choose from:
 
 - `history`: Chooses the most recent match from history.
-- `match_prev_cmd`: Like `history`, but chooses the most recent match whose preceding history item matches the most recently executed command ([more info](src/strategies/match_prev_cmd.zsh)). Note that this strategy won't work as expected with Zsh options that don't preserve the history order such as `HIST_IGNORE_ALL_DUPS` or `HIST_EXPIRE_DUPS_FIRST`.
+- `match_prev_cmd`: Like `history`, but chooses the most recent match whose preceding history item matches the most recently executed command ([more info](src/strategies/match_prev_cmd.zsh)). Note that this strategy won't work as expected with zsh options that don't preserve the history order such as `HIST_IGNORE_ALL_DUPS` or `HIST_EXPIRE_DUPS_FIRST`.
 - `completion`: (experimental) Chooses a suggestion based on what tab-completion would suggest. (requires `zpty` module)
 
 For example, setting `ZSH_AUTOSUGGEST_STRATEGY=(history completion)` will first try to find a suggestion from your history, but, if it can't find a match, will find a suggestion from the completion engine.
@@ -118,7 +118,7 @@ Before reporting an issue, please try temporarily disabling sections of your con
 When reporting an issue, please include:
 
 - The smallest, simplest `.zshrc` configuration that will reproduce the problem. See [this comment](https://github.com/zsh-users/zsh-autosuggestions/issues/102#issuecomment-180944764) for a good example of what this means.
-- The version of Zsh you're using (`zsh --version`)
+- The version of zsh you're using (`zsh --version`)
 - Which operating system you're running
 
 
@@ -156,7 +156,7 @@ Tests are written in ruby using the [`rspec`](http://rspec.info/) framework. The
 
 Test files live in `spec/`. To run the tests, run `make test`. To run a specific test, run `TESTS=spec/some_spec.rb make test`. You can also specify a `zsh` binary to use by setting the `TEST_ZSH_BIN` environment variable (ex: `TEST_ZSH_BIN=/bin/zsh make test`).
 
-A docker image for testing is available [on docker hub](https://hub.docker.com/r/ericfreese/zsh-autosuggestions-test). It comes with ruby, the bundler dependencies, and all supported versions of Zsh installed.
+A docker image for testing is available [on docker hub](https://hub.docker.com/r/ericfreese/zsh-autosuggestions-test). It comes with ruby, the bundler dependencies, and all supported versions of zsh installed.
 
 Pull the docker image with:
 
